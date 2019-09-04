@@ -37,4 +37,28 @@ export class CalculatorComponent implements OnInit {
     this.formValues = {};
   }
 
+  public savePriceFood(e) {
+    this.priceFood = e.target.value;
+  }
+
+  public saveCantOrderFood(e) {
+    this.formValues.cantOrderFood = e.target.value;
+    this.saveTotalPrice();
+  }
+
+  public saveCantSoda(e) {
+    this.formValues.cantSoda = e.target.value;
+    this.saveTotalPrice();
+  }
+
+  public saveTotalPrice() {
+    if (this.formValues.cantSoda === 0 || this.formValues.cantSoda === undefined) {
+      this.formValues.totalPrice = this.priceFood * this.formValues.cantOrderFood;
+    } else if (this.formValues.cantSoda > 0) {
+      const priceTotalSoda = 5 * this.formValues.cantSoda;
+
+      this.formValues.totalPrice = (this.priceFood * this.formValues.cantOrderFood) + priceTotalSoda;
+    }
+  }
+
 }

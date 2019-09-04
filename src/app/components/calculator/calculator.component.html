@@ -25,19 +25,22 @@
         <div class="form-group">
           <label for="cantPedidoComida">Cantidad</label>
           <input type="number" class="form-control" id="cantPedidoComida"
-          name="cantOrderFood" [(ngModel)]="formValues.cantOrderFood">
+          name="cantOrderFood" [(ngModel)]="formValues.cantOrderFood"
+          (change)="saveCantOrderFood($event)">
         </div>
 
         <div class="form-group">
           <label for="cantRefresco">Cantidad de refrescos</label>
           <input type="number" class="form-control" id="cantRefresco"
-          name="cantSoda" [(ngModel)]="formValues.cantSoda">
+          name="cantSoda" [(ngModel)]="formValues.cantSoda"
+          (change)="saveCantSoda($event)">
         </div>
 
         <div class="form-group">
-          <label for="totalPagar">Total a pagar</label>
+          <label for="totalPagar" class="text-success">Total a pagar</label>
           <input type="number" class="form-control" id="totalPagar" disabled
-          name="totalPrice" [(ngModel)]="formValues.totalPrice">
+          name="totalPrice" [(ngModel)]="formValues.totalPrice"
+          (change)="saveTotalPrice()">
         </div>
 
         <div class="form-group">
@@ -48,7 +51,7 @@
         </div>
 
         <div class="form-group">
-          <label for="cambio">Cambio</label>
+          <label for="cambio" class="text-success">Cambio</label>
           <input type="number" class="form-control" id="cambio" disabled
           name="change" [(ngModel)]="formValues.change">
         </div>
