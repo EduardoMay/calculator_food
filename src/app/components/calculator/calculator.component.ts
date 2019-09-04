@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Calculator } from 'src/app/interfaces/calculator';
 
 @Component({
   selector: 'app-calculator',
@@ -7,9 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
+  public formValues: Calculator = {};
+  public priceFood: number;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // Calculator
+  public calculator() {
+    if (this.formValues.cantSoda === 0 || this.formValues.cantSoda === undefined) {
+      this.formValues.totalPrice = this.priceFood * this.formValues.cantOrderFood;
+    } else if (this.formValues.cantSoda > 0) {
+      const priceTotalSoda = 5 * this.formValues.cantSoda;
+
+      this.formValues.totalPrice = (this.priceFood * this.formValues.cantOrderFood) + priceTotalSoda;
+    }
+  }
+
+  // change
+  private change(e) {
+    this.formValues.change = e.target.value - this.formValues.totalPrice;
+  }
+
+  // clear form
+  public clear() {
+    this.formValues = {};
   }
 
 }
