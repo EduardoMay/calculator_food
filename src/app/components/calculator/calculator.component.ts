@@ -28,7 +28,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   // change
-  private change(e) {
+  public change(e) {
     this.formValues.change = e.target.value - this.formValues.totalPrice;
   }
 
