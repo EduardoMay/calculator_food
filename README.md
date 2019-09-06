@@ -1,27 +1,29 @@
-# Calculator
+# Calculator Food v1.0
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+Es una aplicacion web donde su utilidad es saber el monto total a pagar.
 
-## Development server
+La funcionalidad es la siguiente:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Ingresar el precio del alimento
+
+- Ingresar la cantidad de alimentos
+
+- Ingresar la cantidad de refrescos
+
+- Ingresar el monto que diste al pagar
+
+Este proyecto esta generado por [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+
+## Servidor de desarrollo
+
+Ejecutar `ng serve` en el servidor de desarrollo. Ingresar desde el navegador con el siguiente link `http://localhost:4200/`. La aplicacion se volvera a cargar automaticamente si cambia alguno de los arhivo de origen.
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Ejecute `ng generate component component-name` para generar algun componente. Tambien puede usar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Para obtener ayuda sobre Angular CLI utilice `ng help` o consulte [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Todos los derechos reservados 2019 -  Eduardo May
