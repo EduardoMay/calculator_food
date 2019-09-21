@@ -17,43 +17,49 @@
       <form #formCalculator="ngForm" (submit)="calculator()">
 
         <div class="form-group">
-          <label for="priceFood">Precio de la comida</label>
-          <input type="number" class="form-control" id="priceFood"
-          name="priceFood" [(ngModel)]="priceFood">
+          <label>Precio de la comida</label>
+          <input type="number" class="form-control"
+          name="priceFood" [(ngModel)]="priceFood"
+          (change)="savePriceFood($event)">
+        </div>
+
+        <div class="form-group row">
+
+          <div class="col-6 col-md-6">
+            <label>Cantidad</label>
+            <input type="number" class="form-control"
+            name="cantOrderFood" [(ngModel)]="formValues.cantOrderFood"
+            (change)="saveCantOrderFood($event)">
+          </div>
+
+          <div class="col-6 col-md-6">
+            <div class="form-group">
+              <label>Cantidad de refrescos</label>
+              <input type="number" class="form-control"
+              name="cantSoda" [(ngModel)]="formValues.cantSoda"
+              (change)="saveCantSoda($event)">
+            </div>
+          </div>
+
         </div>
 
         <div class="form-group">
-          <label for="cantPedidoComida">Cantidad</label>
-          <input type="number" class="form-control" id="cantPedidoComida"
-          name="cantOrderFood" [(ngModel)]="formValues.cantOrderFood"
-          (change)="saveCantOrderFood($event)">
+            <label>Monto</label>
+            <input type="number" class="form-control"
+            name="rode" [(ngModel)]="formValues.rode"
+            (change)="change($event)">
+          </div>
+
+        <div class="form-group mt-4">
+
+          <h3>Total a pagar <small>${{formValues.totalPrice | number: '.2-2'}}</small></h3>
+
         </div>
 
-        <div class="form-group">
-          <label for="cantRefresco">Cantidad de refrescos</label>
-          <input type="number" class="form-control" id="cantRefresco"
-          name="cantSoda" [(ngModel)]="formValues.cantSoda"
-          (change)="saveCantSoda($event)">
-        </div>
+        <div class="form-group mb-4">
 
-        <div class="form-group">
-          <label for="totalPagar" class="text-success">Total a pagar</label>
-          <input type="number" class="form-control" id="totalPagar" disabled
-          name="totalPrice" [(ngModel)]="formValues.totalPrice"
-          (change)="saveTotalPrice()">
-        </div>
+          <h3>Cambio <small>${{formValues.change | number: '.2-2'}}</small></h3>
 
-        <div class="form-group">
-          <label for="monto">Monto</label>
-          <input type="number" class="form-control" id="monto"
-          name="rode" [(ngModel)]="formValues.rode"
-          (change)="change($event)">
-        </div>
-
-        <div class="form-group">
-          <label for="cambio" class="text-success">Cambio</label>
-          <input type="number" class="form-control" id="cambio" disabled
-          name="change" [(ngModel)]="formValues.change">
         </div>
 
         <!-- guardar la orden -->
