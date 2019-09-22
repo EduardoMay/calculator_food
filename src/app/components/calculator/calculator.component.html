@@ -2,9 +2,6 @@
 
   <div class="row p-3">
 
-    <div class="col-md-12">
-      <h6 class="text-center">Hecho por Eduardo May</h6>
-    </div>
     <div class="col-md-12 mt-1">
       <h3 class="text-center">Calculadora</h3>
     </div>
@@ -14,51 +11,81 @@
   <div class="row">
     <div class="col-md-12 pl-3 pr-3">
 
-      <form #formCalculator="ngForm" (submit)="calculator()">
+      <form #formCalculator="ngForm" (submit)="saveTotalPrice()">
 
         <div class="form-group">
+
           <label>Precio de la comida</label>
-          <input type="number" class="form-control"
-          name="priceFood" [(ngModel)]="priceFood"
-          (change)="savePriceFood($event)">
+
+          <input type="number"
+            class="form-control"
+            name="priceFood"
+            [(ngModel)]="priceFood"
+            (change)="savePriceFood($event)">
+
         </div>
 
-        <div class="form-group row">
+        <div class="form-group">
 
-          <div class="col-6 col-md-6">
-            <label>Cantidad</label>
-            <input type="number" class="form-control"
-            name="cantOrderFood" [(ngModel)]="formValues.cantOrderFood"
-            (change)="saveCantOrderFood($event)">
-          </div>
+          <div class="row text-center">
 
-          <div class="col-6 col-md-6">
-            <div class="form-group">
-              <label>Cantidad de refrescos</label>
-              <input type="number" class="form-control"
-              name="cantSoda" [(ngModel)]="formValues.cantSoda"
-              (change)="saveCantSoda($event)">
+            <div class="col-6">
+              <label>Cantidad</label>
             </div>
+
+            <div class="col-6">
+              <label>Cantidad de refrescos</label>
+            </div>
+
           </div>
 
         </div>
 
         <div class="form-group">
-            <label>Monto</label>
-            <input type="number" class="form-control"
-            name="rode" [(ngModel)]="formValues.rode"
-            (change)="change($event)">
+
+          <div class="row">
+
+            <div class="col-6">
+              <input type="number"
+                class="form-control"
+                name="cantOrderFood"
+                [(ngModel)]="formValues.cantOrderFood"
+                (change)="saveCantOrderFood($event)">
+            </div>
+
+            <div class="col-6">
+              <input type="number"
+                class="form-control"
+                name="cantSoda"
+                [(ngModel)]="formValues.cantSoda"
+                (change)="saveCantSoda($event)">
+            </div>
+
           </div>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Monto</label>
+
+          <input type="number"
+            class="form-control"
+            name="rode"
+            [(ngModel)]="formValues.rode"
+            (change)="change($event)">
+
+        </div>
 
         <div class="form-group mt-4">
 
-          <h3>Total a pagar <small>${{formValues.totalPrice | number: '.2-2'}}</small></h3>
+          <h4>Total a pagar <small>${{formValues.totalPrice | number: '.2-2'}}</small></h4>
 
         </div>
 
         <div class="form-group mb-4">
 
-          <h3>Cambio <small>${{formValues.change | number: '.2-2'}}</small></h3>
+          <h4>Cambio <small>${{formValues.change | number: '.2-2'}}</small></h4>
 
         </div>
 
@@ -83,6 +110,14 @@
 
     </div>
 
+  </div>
+
+  <div class="row fixed-bottom">
+    <div class="col-12">
+      <div class="col-md-12">
+        <h6 class="text-center">Hecho por Eduardo May</h6>
+      </div>
+    </div>
   </div>
 
 </div>
