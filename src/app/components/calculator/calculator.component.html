@@ -1,4 +1,6 @@
-<div class="container bg-white">
+<div class="container"
+  [ngClass]="{'dark-bg-secondary text-white': statusDarkMode === 'true', 'bg-white text-body': statusDarkMode === 'false'}"
+  style="height: 100vh;">
 
   <div class="row p-3">
 
@@ -18,10 +20,11 @@
           <label>Precio de la comida</label>
 
           <input type="number"
-            class="form-control"
+            class="form-ctrl"
             name="priceFood"
             [(ngModel)]="priceFood"
-            (change)="savePriceFood($event)">
+            (change)="savePriceFood($event)"
+            [ngClass]="{'dark-input-on': statusDarkMode === 'true', 'dark-input-off': statusDarkMode === 'false'}">
 
         </div>
 
@@ -47,18 +50,20 @@
 
             <div class="col-6">
               <input type="number"
-                class="form-control"
+                class="form-ctrl"
                 name="cantOrderFood"
                 [(ngModel)]="formValues.cantOrderFood"
-                (change)="saveCantOrderFood($event)">
+                (change)="saveCantOrderFood($event)"
+                [ngClass]="{'dark-input-on': statusDarkMode === 'true', 'dark-input-off': statusDarkMode === 'false'}">
             </div>
 
             <div class="col-6">
               <input type="number"
-                class="form-control"
+                class="form-ctrl"
                 name="cantSoda"
                 [(ngModel)]="formValues.cantSoda"
-                (change)="saveCantSoda($event)">
+                (change)="saveCantSoda($event)"
+                [ngClass]="{'dark-input-on': statusDarkMode === 'true', 'dark-input-off': statusDarkMode === 'false'}">
             </div>
 
           </div>
@@ -70,10 +75,11 @@
           <label>Monto</label>
 
           <input type="number"
-            class="form-control"
+            class="form-ctrl"
             name="rode"
             [(ngModel)]="formValues.rode"
-            (change)="change($event)">
+            (change)="change($event)"
+            [ngClass]="{'dark-input-on': statusDarkMode === 'true', 'dark-input-off': statusDarkMode === 'false'}">
 
         </div>
 
@@ -90,16 +96,16 @@
         </div>
 
         <!-- guardar la orden -->
-        <div class="form-group">
+        <div class="form-group mt-5">
 
           <div class="row">
 
             <div class="col-6 pr-3 pl-3">
-              <button type="submit" class="btn btn-outline-danger btn-block">Calcular</button>
+              <button type="submit" class="btn btn-primary btn-block">Calcular</button>
             </div>
 
             <div class="col-6 pr-3 pl-3">
-              <button type="submit" class="btn btn-outline-success btn-block" (click)="clear()">Limpiar</button>
+              <button type="submit" class="btn btn-success btn-block" (click)="clear()">Limpiar</button>
             </div>
 
           </div>
@@ -112,10 +118,17 @@
 
   </div>
 
-  <div class="row fixed-bottom">
-    <div class="col-12">
-      <div class="col-md-12">
-        <h6 class="text-center">Hecho por Eduardo May</h6>
+  <div class="row mt-2">
+    <div class="col-12 text-center">
+      <span>Hecho por Eduardo May</span>
+      <div class="btn-group ml-2">
+        <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ⚙
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item"
+          (click)="darkMode()">Dark Mode</a>
+        </div>
       </div>
     </div>
   </div>

@@ -10,10 +10,12 @@ export class CalculatorComponent implements OnInit {
 
   public formValues: Calculator = {totalPrice: 0, change: 0}; // valores del formulario
   public priceFood: number; // precio de la comida
+  public statusDarkMode = 'false';
 
   constructor() { }
 
   ngOnInit() {
+    this.stateDarkMode();
   }
 
   /**
@@ -88,4 +90,35 @@ export class CalculatorComponent implements OnInit {
     }
   }
 
+  /**
+   * getDarkMode
+   * @description saver si el dark mode esta activado
+   */
+  public stateDarkMode() {
+    const storageDarkMode = localStorage.getItem('statusDarkMode');
+
+    if (storageDarkMode !== null) {
+      this.statusDarkMode = storageDarkMode;
+    }
+
+    console.log(this.statusDarkMode);
+  }
+
+  /**
+   * darkMode
+   * @description activiar y desactivar el modo oscuro
+   */
+  public darkMode() {
+    if (this.statusDarkMode === 'false') {
+      this.statusDarkMode = 'true';
+      localStorage.setItem('statusDarkMode', 'true');
+      this.stateDarkMode();
+    } else {
+      this.statusDarkMode = 'false';
+      localStorage.setItem('statusDarkMode', 'false');
+      this.stateDarkMode();
+    }
+
+    console.log(this.statusDarkMode);
+  }
 }
